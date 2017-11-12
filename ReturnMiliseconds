@@ -1,0 +1,28 @@
+/* Написать программу которая вернет количество миллисекунд
+прошедших от такого же числа, но в прошлом месяце до сегодняшней
+даты. Например если сегодня 3 августа, то узнать сколько миллисекунд
+прошло с 3 июля.
+*/
+
+package com.gmail.v.bulgakov.max;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class ReturnMiliseconds {
+
+	public static void main(String[] args) {
+
+		Calendar cal = Calendar.getInstance();
+		System.out.println("The current date is : " + cal.getTime());
+		Date today = cal.getTime();
+
+		Calendar pastCal = Calendar.getInstance();
+		pastCal.add(Calendar.MONTH, -1);
+		Date monthAgo = pastCal.getTime();
+				
+		long result = today.getTime() - monthAgo.getTime();
+		System.out.println(result + " milliseconds passed from last month");
+
+	}
+}
