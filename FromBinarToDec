@@ -1,0 +1,34 @@
+/* Ввести с консоли число в бинарном формате. Перевести его в
+десятичный и вывести на экран (“10” -> 2). */
+
+package com.gmail.v.bulgakov.max;
+
+import java.util.Scanner;
+
+public class FromBinarToDec {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter value in binar format");
+		int binar = sc.nextInt();
+		System.out.print("(\"" + binar + "\" -> " + converter(binar)+")");
+		
+		// String binar = sc.nextLine();
+		// int i = Integer.parseInt(binar, 2);
+		// System.out.println("\"" + binar + "\" -> " + i);
+		sc.close();
+	}
+
+	public static int converter(int binar) {
+		int i = 0;
+		int n = 0;
+		while (binar != 0) {
+			i = i + ((binar % 10) * (int) Math.pow(2, n));
+			binar = binar / 10;
+			n++;
+		}
+		return i;
+	}
+
+}
